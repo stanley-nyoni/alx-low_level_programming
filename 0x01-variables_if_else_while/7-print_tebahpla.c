@@ -1,8 +1,9 @@
 #include <stdio.h>
 /**
-* main - Prints lowercase alphabet in reverse
+* main - Entry point
 *
-*Return 0 (Success)
+* Description: using ASCII to print lowercase letters in revers
+* Return: 0 (Success)
 */
 int main(void)
 {
