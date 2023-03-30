@@ -13,7 +13,7 @@ char *leet(char *str)
 	int j = 0;
 
 	while (str[j] != '\0')
-		j++;
+	{
 
 	for (i = 0; i < j; i++)
 	{
@@ -37,6 +37,8 @@ char *leet(char *str)
 		{
 			str[i] = '1';
 		}
+	}
+	j++;
 	}
 	return (str);
 }
