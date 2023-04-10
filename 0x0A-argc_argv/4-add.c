@@ -1,4 +1,4 @@
-:#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 
@@ -12,22 +12,24 @@
 
 int main(int argc, char *argv[])
 {
-	int i, j;
+	int i, z, j;
 	int sum = 0;
-	int flag = 0;
 
 	for (i = 1; i < argc; i++)
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			if (!isdigit(argv[i][j]))
+			if (argv[i][j] < '0' || argv[i][j] > '9')
 			{
 				printf("Error\n");
-				flag = 1;
+				return (1);
 			}
 		}
-		sum += atoi(argv[i]);
+	}
+	for (z = 1; z < argc; z++)
+	{
+		sum += atoi(argv[z]);
 	}
 	printf("%d\n", sum);
-	return (flag);
+	return (0);
 }
