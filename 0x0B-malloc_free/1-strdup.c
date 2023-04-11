@@ -20,7 +20,7 @@ char *_strdup(char *str)
 		j++;
 	}
 
-	copy = (char *) malloc((sizeof(char)) * j);
+	copy = (char *) malloc((sizeof(char)) * j + 1);
 
 	if (str == NULL)
 	{
@@ -31,6 +31,12 @@ char *_strdup(char *str)
 	{
 		*(copy + i) = *(str + i);
 	}
+	
+	if (copy == NULL)
+	{
+		return (NULL);
+	}
+
 	return (copy);
 	free(copy);
 }
