@@ -20,9 +20,15 @@ char *_strdup(char *str)
 		j++;
 	}
 
+	if (str == NULL || j == 0)
+	{
+		return (NULL);
+	}
+
 	copy = (char *) malloc((sizeof(char)) * j + 1);
 
-	if (str == NULL)
+
+	if (copy == NULL)
 	{
 		return (NULL);
 	}
@@ -30,13 +36,12 @@ char *_strdup(char *str)
 	for (i = 0; i < j; i++)
 	{
 		*(copy + i) = *(str + i);
+
 	}
-	
-	if (copy == NULL)
-	{
-		return (NULL);
-	}
+	*(copy + i) = '\0';
+
+	free(str);
 
 	return (copy);
-	free(copy);
+
 }
