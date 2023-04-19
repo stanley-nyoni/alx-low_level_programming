@@ -32,10 +32,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 				rtn = i;
 				break;
 			}
-			else
-			{
-				rtn = 0;
-			}
+
 		}
 		if (flag == 0)
 		{
