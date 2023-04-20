@@ -13,31 +13,16 @@
 int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
-	int flag = 0;
-	int rtn = 0;
 
-	if (array && size && cmp)
+	if (array && cmp)
 	{
-
 		if (size <= 0)
-		{
-			rtn = -1;
-		}
+			return (-1);
 
 		for (i = 0; i < size; i++)
-		{
-			flag = cmp(array[i]);
-			if (flag != 0)
-			{
-				rtn = i;
-				break;
-			}
-
-		}
-		if (flag == 0)
-		{
-			rtn = -1;
-		}
+			if (cmp(array[i]))
+				return (i);
 	}
-	return (rtn);
+
+	return (-1);
 }
