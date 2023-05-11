@@ -28,12 +28,11 @@ int main(int argc, char *argv[])
 	while (r_chars == 1024)
 	{
 		r_chars = read(fd[0], buffer, 1024);
-		if (fd[0] < 0 || r_chars < 0)
+		if (fd[0] < 0 || r_chars < 0 || !(argv[1]))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
-
 
 		fd[1] = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 		w_chars = write(fd[1], buffer, strlen(buffer));
