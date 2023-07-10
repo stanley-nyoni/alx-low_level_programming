@@ -38,7 +38,6 @@ int main(int ac, char **av)
 	ssize_t r_chars, w_chars;
 	char buff[1024];
 
-
 	if (ac != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
@@ -46,9 +45,8 @@ int main(int ac, char **av)
 	}
 
 	fd[0] = open(av[1], O_RDONLY);
-	fd[1] = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+	fd[1] = open(av[2], O_RDWR | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	print_err(fd, av);
-
 	r_chars = read(fd[0], buff, 1024);
 	if (r_chars < 0)
 	{
@@ -63,7 +61,6 @@ int main(int ac, char **av)
 		dprintf(2, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-
 	if (close(fd[0]) < 0)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd[0]);
@@ -72,6 +69,7 @@ int main(int ac, char **av)
 	if (close(fd[1]) < 0)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd[1]);
+		exit(100);
 	}
 	return (0);
 }
