@@ -1,1 +1,2 @@
-Welcome to C - Bit manipulation
+## Welcome to C - Bit Manipulation
+
