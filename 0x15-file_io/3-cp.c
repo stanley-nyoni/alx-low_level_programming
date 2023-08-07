@@ -43,7 +43,7 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	file_from = open(av[1], O_RDONLY);
-	file_to = open(av[2], O_CREAT | O_WROLY | O_TRUCN | O_APPEND, 0664);
+	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	print_err(file_from, file_to, av);
 
 	r_chars = 1024;
