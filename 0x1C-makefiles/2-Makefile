@@ -13,3 +13,6 @@ school.o: school.c
 	$(CC) -c school.c
 
 all: $(NAME)
+
+clean:
+	rm *.o
